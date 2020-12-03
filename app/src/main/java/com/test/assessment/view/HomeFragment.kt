@@ -6,6 +6,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.infotronic.tech.facade.base.BaseFragment
+import com.orhanobut.hawk.Hawk
 import com.test.assessment.R
 import com.test.assessment.model.AlbumResponse
 import com.test.assessment.model.Result
@@ -51,13 +52,17 @@ class HomeFragment : BaseFragment() {
 
         mainContentViewModel.albumLiveData.observe(this, Observer { albumResponse ->
             results.clear()
+
             albumResponse.results.forEach {
+
                 results.add(it)
             }
+
+            HomePageService.checkBookmarkList(results)
+
             albumAdapter.notifyDataSetChanged()
         })
     }
-
 
 
 }

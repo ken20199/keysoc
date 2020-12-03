@@ -1,11 +1,11 @@
 package com.test.assessment.model
 
-data class AlbumResponse (
+data class AlbumResponse(
     val resultCount: Long,
     val results: List<Result>
 )
 
-data class Result (
+data class Result(
     val wrapperType: String? = null,
     val collectionType: String? = null,
     val artistId: Int? = null,
@@ -26,7 +26,8 @@ data class Result (
     val currency: String? = null,
     val releaseDate: String? = null,
     val primaryGenreName: String? = null,
-    val contentAdvisoryRating: String? = null
+    val contentAdvisoryRating: String? = null,
+    var isBookmark: Boolean = false
 )
 
 enum class ArtistName {
