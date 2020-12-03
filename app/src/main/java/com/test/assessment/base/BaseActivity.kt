@@ -16,14 +16,18 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProviders
+import com.test.assessment.R
 import com.test.assessment.utils.DeviceUtils.isNetworkConnected
 import io.reactivex.disposables.CompositeDisposable
+import kotlinx.android.synthetic.main.activity_main.view.*
 
 
 @SuppressLint("Registered")
 abstract class BaseActivity : AppCompatActivity() {
 
+    lateinit var active: BaseFragment
 
+    abstract fun initUIControl()
 
     val networkConnected: Boolean
         get() {
@@ -45,12 +49,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
-
-
     }
-
 
 
     fun printToast(msg: String) {
@@ -62,5 +61,18 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
 
+    fun addFragment(fragment: BaseFragment) {
+        targetFragmentManager.beginTransaction().add(R.id.container, fragment, "").commit()
+
+    }
+
+    fun hideFragment(fragment: BaseFragment) {
+        targetFragmentManager.beginTransaction().hide(fragment).commit()
+    }
+
+    fun showFragment(fragment: BaseFragment) {
+        targetFragmentManager.beginTransaction().show(fragment).commit()
+        active = fragment
+    }
 
 }

@@ -47,7 +47,7 @@ abstract class BaseFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initUIControl()
+
         subscribeViewModel()
     }
 
@@ -74,12 +74,12 @@ abstract class BaseFragment : Fragment() {
     }
 
     fun printToast(msg: String) {
-        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
+        (requireActivity() as BaseActivity).printToast(msg)
     }
 
 
-    fun print(msg: String) {
-        Log.d(TAG, msg)
+    fun printLog(msg: String) {
+        (requireActivity() as BaseActivity).printLog(msg)
     }
 
     protected fun onBackPress() {
@@ -87,6 +87,8 @@ abstract class BaseFragment : Fragment() {
             (activity as MainActivity).onBackPressed()
         }
     }
+
+
 
 
 

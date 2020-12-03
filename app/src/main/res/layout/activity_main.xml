@@ -1,14 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MainActivity">
+    android:orientation="vertical"
+    tools:context=".view.MainActivity"
+    android:background="@color/black">
 
-    <androidx.recyclerview.widget.RecyclerView
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tbbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        app:titleTextColor="@color/selected"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bnvMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@color/blackTop"
+        app:itemRippleColor="@color/white"
+        app:itemTextColor="@color/bottom_nav_color"
+        app:elevation="4dp"
+        app:itemIconTint="@color/bottom_nav_color"
+        app:menu="@menu/bottom_navigation_menu"/>
 
 
-</RelativeLayout>
+</LinearLayout>

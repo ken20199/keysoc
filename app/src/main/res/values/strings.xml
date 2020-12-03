@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Assessment</string>
+    <string name="home_tab_title">home</string>
+    <string name="bookmark_tab_title">bookmarks</string>
 </resources>

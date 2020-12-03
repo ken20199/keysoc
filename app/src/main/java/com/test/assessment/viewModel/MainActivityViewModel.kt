@@ -6,11 +6,13 @@ import androidx.lifecycle.MutableLiveData
 import com.infotronic.tech.facade.base.BaseViewModel
 import com.infotronic.tech.facade.util.subscribeAll
 import com.test.assessment.model.AlbumResponse
+import com.test.assessment.model.Result
 import com.test.assessment.network.WebServiceModel
 
 class MainContentViewModel(application: Application) : BaseViewModel(application) {
 
     val albumLiveData = MutableLiveData<AlbumResponse>()
+    var results =  MutableLiveData<List<Result>>()
     var v = 0
 
     companion object {
@@ -27,7 +29,6 @@ class MainContentViewModel(application: Application) : BaseViewModel(application
             Log.d(this.javaClass.simpleName, "Fail call = "+it.message)
 
         }, {
-            Log.d(this.javaClass.simpleName, "error" + " |  ")
 
         }))
 
