@@ -19,9 +19,9 @@ class MainActivity : BaseActivity() {
 
         subscribeViewModel()
 
-        btn_test.setOnClickListener {
-            mainContentViewModel.callAlbumApi("jack johnson","album")
-        }
+//        btn_test.setOnClickListener {
+//            mainContentViewModel.callAlbumApi("jack johnson","album")
+//        }
     }
 
     private fun subscribeViewModel() {
